@@ -5,20 +5,21 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "./assets/vite.svg";
 import heroImg from "./assets/hero.png";
 import "./App.css";
+import {useState, usestate} from "react"
 
 function App() {
   // 4. Create useState variables for Mr. Castro called castroLikes and setCastroLikes, make the default 5
-
+const [castroLikes, setCastroLikes] = useState(5)
 
 
   // 5. Create useState variables for Mr. Chambers called chambersDislikes and setChambersDislikes, make the default 10
 
-
+const [chambersDislikes, setChambersDislikes] = useState(10)
 
   // 6. Create useState variables for a dark/light mode called darkMode and setDarkMode
+const [darkMode, setDarkMode] = useState(false)
 
   // delete darkMode before writing your new variables
-  const darkMode = ""
 
 
   return (
@@ -58,7 +59,7 @@ function App() {
               <button
                 className="counter"
                 // 7. Add an onClick in the button that increases castroLikes by 1 
-                
+                onClick={() => setCastroLikes(castroLikes +1)}
 
 
               >
@@ -66,7 +67,7 @@ function App() {
               </button>
 
               {/* 8. Display castroLikes here after the 👍 using curly brackets  */}
-              <p>Likes: 👍   </p>
+              <p>Likes: 👍 {castroLikes } </p>
             </div>
 
             <div className="teacher-card">
@@ -82,6 +83,8 @@ function App() {
               <button
                 className="counter"
                 // 9. Add an onClick in the button that increases chambersDislikes by 1 
+                onClick={() => setChambersDislikes(chambersDislikes +1)}
+
 
 
 
@@ -90,7 +93,7 @@ function App() {
               </button>
 
              {/* 10. display chambersDislikes here after the 👎 using curly brackets  */}
-              <p>Dislikes: 👎  </p>
+              <p>Dislikes: 👎 {chambersDislikes} </p>
             </div>
           </div>
 
@@ -100,13 +103,13 @@ function App() {
             onClick={() => {
               {/* 11. reset castroLikes back to 0 here */}
               
-              
+              setCastroLikes(0)
 
 
 
               {/* 12. reset chambersDislikes back to 0 here */}
               
-              
+              setChambersDislikes(0)
 
 
 
@@ -116,12 +119,13 @@ function App() {
           </button>
 
           {/* 13. Add this to the button below onClick:  onClick={() => setDarkMode(!darkMode)} */}
-          <button className="counter"            >
+          <button className="counter"     onClick={ ()  => setDarkMode(!darkMode)}       >
             Change Screen Mode
           </button>
+          
 
             {/* 14 Add this after the colon below: {darkMode ? "Dark Mode" : "Light Mode"} */}
-          <p>Current Mode:               </p>
+          <p>Current Mode: {darkMode ? "dark Mode" : "light Mode"}              </p>
 
           {/* 15. Submit! (git add . git commit -m 'done' git push) */}
         </section>
